@@ -7,7 +7,7 @@ def download_file(url, save_path):
             if chunk:
                 f.write(chunk)
 
-url = 'https://hf-mirror.com/datasets/wzy816/scifi/resolve/main/data.zip?download=true'
+url = 'https://hf-mirror.com/datasets/wzy816/scifi/resolve/main/data.zip'
 save_path = 'data/data.zip'
 
 # 判断目录是否存在

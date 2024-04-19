@@ -23,6 +23,7 @@ d_model = config.getint('Hyperparameters', 'd_model')
 num_blocks = config.getint('Hyperparameters', 'num_blocks')
 num_heads = config.getint('Hyperparameters', 'num_heads')
 dropout = config.getfloat('Hyperparameters', 'dropout')
+batch_size = config.getfloat('Hyperparameters', 'batch_size')
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'  # Use GPU if it's available.
 TORCH_SEED = 1337

@@ -86,6 +86,29 @@ chat_prompt.format_prompt(
 - HumanMessagePromptTemplate， 对于用户消息；
 - ChatMessagePromptTemplate， 对于具有任意角色的消息；
 
+#### 自定义提示词模板
+某些情况下，默认提示词模板无法满足需求，例如，需要创建一个提示模板，其中包含语言模型的特定动态说明
+
+```
+import inspect
+
+def get_source_code(function_name):
+    return inspect.getsource(function_name)
+
+def add(a, b):
+    return a + b
+```
+
+```
+from langchain.prompts import StringPromptTemplate
+from pydantic import BaseModel, validate
+PROMPT_TEMPLATE = """
+Below is an Python function. Please provide a summary of the function's purpose, input parameters, and output.
+Funtion Name: {function_name}
+Source Code: {source_code}
+Explantion：
+```
+
 ### 样本选择器
 在LLM应用开发中，可能需要从大量样本数据中，选择部分数据包含在提示词中。样本选择器（Example Selector）正是满足该需求的组件，它也通常与少样本提示词配合使用。LangChain 提供了样本选择器的基础接口类 BaseExampleSelector，每个选择器类必须实现的函数为 select_examples。LangChain 实现了若干基于不用应用场景或算法的选择器：
 

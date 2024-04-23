@@ -23,7 +23,7 @@ vLLM灵活且易于使用：
 - （实验性）前缀缓存支持
 - （实验性）Multi-lora支持
 
-vLLM无缝支持多种拥抱脸模型，包括以下架构：
+vLLM无缝支持多种大数据模型，包括以下架构：
 
 - Aquila & Aquila2 (BAAI/AquilaChat2-7B, BAAI/AquilaChat2-34B, BAAI/Aquila-7B, BAAI/AquilaChat-7B, etc.)
 - Baichuan & Baichuan2 (baichuan-inc/Baichuan2-13B-Chat, baichuan-inc/Baichuan-7B, etc.)

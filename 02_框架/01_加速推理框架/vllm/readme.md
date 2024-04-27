@@ -1,7 +1,9 @@
 ### 大模型推理工具：vLLM的入门使用
 
 #### 简介
-vLLM是一个快速且易于使用的LLM推理和服务库。
+vLLM全称Virtual Large Language Model，由Nvidia开源，旨在降低大模型推理的显存占用。其核心思想是将模型的一部分保存在CPU内存或硬盘上，只将当前计算所需的部分加载到GPU显存中，从而打破GPU显存限制。
+
+vLLM支持PyTorch和FasterTransformer后端，可无缝适配现有模型。使用vLLM，在配备96GB内存+440GB A100的服务器上可运行1750亿参数模型，在配备1.5TB内存+880GB A100的服务器上可运行6万亿参数模型。
 
 vLLM速度很快：
 

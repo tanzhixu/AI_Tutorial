@@ -19,11 +19,39 @@ docker compose up
 
 
 #### 配置环境变量
+##### Windows配置
 由于chatOllama是运行是docker容器中，所以需要在本机设置环境变量，将chatOllama的地址设置为环境变量，方便后续调用
 ```
 OLLAMA_HOST=http://host.docker.internal:11434
 ```
 ![alt text](image-2.png)
+
+##### Linux配置
+修改/etc/systemd/system/ollama.service后重新加载
+
+```
+[Unit]
+Description=Ollama Service
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/ollama serve
+User=ollama
+Group=ollama
+Restart=always
+RestartSec=3
+Environment="PATH=/home/terry/anaconda3/bin:/home/terry/anaconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+
+[Install]
+WantedBy=default.target
+```
+重新加载配置
+```
+sudo systemctl daemon-reload
+sudo systemctl restart ollama
+netstat -an|grep 11434 #看到监听地址为：0.0.0.0:11434即可
+```
 
 #### 初始化SQLite数据库
 ```
@@ -46,7 +74,6 @@ ollama pull nomic-embed-text:latest
 进入设置页面，配置ollama server，地址配置为：
 http://host.docker.internal:11434
 ![alt text](image-5.png)
-
 #### 模型下载
 进入模型下载页面，下载模型，因为我之前用ollama pull过很多模型，所以这里就展示出来了，如果没有下载过，在下载地址栏输入模型名称即可
 

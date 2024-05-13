@@ -19,6 +19,17 @@ Chroma的设计优先考虑：
 
 目前官方提供了Python和JavaScript版本，也有其他语言的社区版本支持。
 
+#### 本地部署与启动
+```
+pip install chromadb
+chroma run 
+--path TEXT The path to the file or directory. [default: ./chroma_data]                                   
+--host TEXT The host to listen to. Default: localhost [default:localhost]                                 
+--log-path TEXT The path to the log file. [default: chroma.log]                                
+--port INTEGER The port to run the server on. [default: 8000]                                 
+--help Show this message and exit.
+```
+
 #### 完整Demo
 首先需要Python环境（Chroma官方原生支持Python和JavaScript，本文用Python做示例）
 ```
